@@ -11,28 +11,28 @@ const dataInput = [
     type: "text",
     id: 2,
     name: "surname",
-    errorMessage: "Name should contain letters",
+    errorMessage: "Surname should contain letters",
   },
   {
     label: "Номер телефона",
     type: "tel",
     id: 3,
     name: "phone",
-    errorMessage: "Name should contain letters",
+    errorMessage: "number field",
   },
   {
     label: "Сайт",
     type: "text",
     id: 4,
     name: "site",
-    errorMessage: "Name should contain letters",
+    errorMessage: "site should start with https:// letters",
   },
   {
     label: "Дата рождения",
     type: "date",
     id: 5,
     name: "birthday",
-    errorMessage: "Name should contain letters",
+    errorMessage: "dd.mm.yyyy format",
   },
 ];
 const dataAreas = [
