@@ -26,7 +26,7 @@ export default class TextArea extends Component {
           onChange={onChange}
           onKeyUp={onKeyUp}
         />
-        <p>{value.length}</p>
+        <p>{value.length > 477 ? 600 - value.length + " symbols left" : ""}</p>
         <p>{isInValid && errorMessage}</p>
       </label>
     );
