@@ -2,9 +2,6 @@ import "./input.css";
 import { Component } from "react";
 
 export default class Input extends Component {
-  constructor(props) {
-    super(props);
-  }
   // commitInput=e=>{
   // 	this.setState({
   // 		text:e.target.value

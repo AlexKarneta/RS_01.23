@@ -1,25 +1,18 @@
 import { Component } from "react";
 import "./form.css";
 import Input from "../input/input";
-import TextArea from "../textArea/textArea";
+import TextArea from "../textArea/TextArea";
 import DatePicker from "../datePicker/datePicker";
 import Button from "../buttons/buttons";
-import data from "../data/data";
+import dataInput from "../data/data";
 import validate from "./form.utils";
+import { dataAreas } from "../data/data";
+import { INITIAL_STATES } from "../data/data";
 
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      surname: "",
-      birthday: "",
-      phone: "",
-      about: "",
-      site: "",
-      stack: "",
-      errors: [],
-    };
+    this.state = INITIAL_STATES;
   }
   onValueChange = (e) => {
     this.setState({
@@ -33,28 +26,23 @@ class Form extends Component {
     this.setState({
       errors: errorsArray,
     });
-    console.log("fields are incorrect: " + errorsArray);
+  };
+  onKeyUp = (e) => {
+    if (e.target.value.length > 10) {
+      console.log(e.target.value.length);
+      return e.target.value.length;
+    }
   };
   onReset = (e) => {
-    this.setState({
-      name: "",
-      surname: "",
-      birthday: "",
-      phone: "",
-      about: "",
-      site: "",
-      stack: "",
-      errors: [],
-    });
+    this.setState(INITIAL_STATES);
   };
   // idShow = (id) => {
   // 	console.log(id)
   // }
 
   render() {
-    const inputs = data.map((item) => {
+    const inputs = dataInput.map((item) => {
       const { id, name, ...itemProps } = item;
-
       return (
         <Input
           key={id}
@@ -67,24 +55,28 @@ class Form extends Component {
         />
       );
     });
+    const areas = dataAreas.map((item) => {
+      const { id, name, ...itemProps } = item;
+      return (
+        <TextArea
+          key={id}
+          onChange={this.onValueChange}
+          name={name}
+          {...itemProps}
+          isInValid={this.state.errors.includes(name)}
+          value={this.state[name]}
+          onKeyUp={this.onKeyUp}
+        />
+      );
+    });
     return (
       <form className="form" onSubmit={this.onSubmit}>
         <h1>Создание анкеты</h1>
-        {/* <input
-						placeholder='salary'
-							name='salary'
-							type='number'
-							onChange={this.onValueChange}
-							value={this.state.salary}
-						/>	 */}
-        {/* <Input
-						{...this.state.testData[1]}
-						onDelete={this.idShow}
-						/> */}
         {inputs}
-        <TextArea name="about" onChange={this.onValueChange} />
+        {areas}
+        {/* <TextArea name="about" onChange={this.onValueChange} />
         <TextArea name="stack" />
-        <TextArea name="last project" />
+        <TextArea name="last project" /> */}
         <button type="submit">submit</button>
         <button type="reset" onClick={this.onReset}>
           reset
