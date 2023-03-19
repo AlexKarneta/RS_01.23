@@ -1,11 +1,22 @@
-.form{
-	padding: 25px;
-	background-color: #fff;
-	width: 600px;
+.form {
+  padding: 25px;
+  background-color: #fff;
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  height: 100vh;
 }
-/* label {
-	font-family: 'Genos', sans-serif;
-} */
-p{
-	font-family: 'Genos', sans-serif;
+.input,
+.text-area {
+  width: 100%;
+}
+
+p {
+  font-family: "Genos", sans-serif;
+}
+button {
+  width: 100px;
+  border-radius: 5px;
+  background-color: white;
 }

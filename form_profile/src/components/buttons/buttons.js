@@ -1,13 +1,15 @@
 import { Component } from "react";
 
-export default class Button extends Component{
-	render (){
-		return (
-			<label >
-				
-				<button> кнопачка_1</button>
-				<button> кнопачка_2</button>
-			</label>			
-		)
-	}
+export default class Button extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { name, label } = this.props;
+    return (
+      <label>
+        <button name={name}>{label}</button>
+      </label>
+    );
+  }
 }

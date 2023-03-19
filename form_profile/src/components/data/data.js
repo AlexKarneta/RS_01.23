@@ -68,6 +68,8 @@ const INITIAL_STATES = {
   stack: "",
   project: "",
   errors: [],
+  active: false,
+  setActive: false,
 };
 export default dataInput;
 export { dataAreas };
