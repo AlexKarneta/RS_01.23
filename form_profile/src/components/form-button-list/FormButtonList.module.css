@@ -1,0 +1,34 @@
+.btnGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  column-gap: 10px;
+}
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.save {
+  composes: button;
+  background-color: green;
+}
+.save:hover {
+  scale: 1.1;
+}
+.discard {
+  composes: button;
+  background-color: red;
+}
+.discard:hover {
+  color: #dc3545;
+  background-color: #fff;
+  outline: 1px solid #dc3545;
+  scale: 1.1;
+}
